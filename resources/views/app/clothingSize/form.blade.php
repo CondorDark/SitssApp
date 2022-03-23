@@ -1,12 +1,21 @@
 <div class="row g-3 align-items-center">
 
-    <div class="col-3">
-        <input class="form-control" placeholder="Identificación" type="text" name="idUser" id="idUser">
+    @php
+       $nombre =  $user[0]['na_personal_information'];
+       $camisa =  $user[0]['tx_Shirt_Size'];
+       $zapato =  $user[0]['nu_Footwear_Size'];
+       $pantal =  $user[0]['nu_Pant_Size'];
+    @endphp
+
+    <div>
+        <label for="identi">Cedula</label>
+        <input disabled class="form-control" value="{{ isset($cedula)?$cedula:old('identi') }}" type="number" name="identi" id="identi">
     </div>
 
-    <div class="col-3">
+    <div class="col-4">
+        <label for="origin">Camisa</label>
         <select name="origin" class="form-select">
-            <option selected>Talla Camisa</option>
+            <option selected>{{ isset($camisa)?$camisa:'Talla Camisa' }}</option>
             <option value="P">P</option>
             <option value="S">S</option>
             <option value="M">M</option>
@@ -17,12 +26,14 @@
         </select>
     </div>
 
-    <div class="col-3">
-        <input class="form-control" placeholder="Pantalón" type="number" name="nu_pantSize" id="nu_pantSize">
+    <div class="col-4">
+        <label for="nu_pantSize">Pantalon</label>
+        <input value="{{ isset($pantal)?$pantal:old('nu_pantSize') }}" class="form-control" placeholder="Pantalón" type="text" name="nu_pantSize" id="nu_pantSize">
     </div>
 
-    <div class="col-3">
-        <input class="form-control" placeholder="Camisa" type="number" name="nu_shirtSize" id="nu_shirtSize">
+    <div class="col-4">
+        <label for="nu_footerSize">Zapato</label>
+        <input value="{{ isset($zapato)?$zapato:old('nu_pantSize') }}" class="form-control" placeholder="Zapato" type="text" name="nu_footerSize" id="nu_footerSize">
     </div>
 
     <div class="d-grid">

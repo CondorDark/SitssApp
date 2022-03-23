@@ -10,24 +10,24 @@
                 @guest
                 @else
 
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="route" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Rutas </a>
                     <ul class="dropdown-menu bg-primary" aria-labelledby="route">
                         <li><a class="dropdown-item" href="{{ route('stations.index') }}">Terminales</a></li>
                         <li><a class="dropdown-item" href="{{ route('routes.index') }}">Rutas</a></li>
                         <li><a class="dropdown-item" href="">Sub-Rutas</a></li>
-                        {{-- <li><a class="dropdown-item" href="{{ route('haul.index') }}">Paradas</a></li> --}}
+                        {{-- <li><a class="dropdown-item" href="{{ route('haul.index') }}">Paradas</a></li>
                     </ul>
-                </li>
+                </li> --}}
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('safra.index') }}">zafra</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('report.index') }}">Reporte</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clothingSize.index') }}">Tallas</a>
-                    </li> --}}
+                    </li>
                 @endguest
             </ul>
 

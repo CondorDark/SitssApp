@@ -7,9 +7,15 @@
                 <div class="card">
                     <div class="card-header bg-primary">EDITAR TALLAS</div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            @php
+                                $cedula =  $user[0]['id_personal_information'];
+                            @endphp
+                            <form action="{{ url( '/clothingSize/'.$cedula ) }}" method="POST">
+
                                 @csrf
+
                                 {{ method_field('PATCH') }}
+
                                 @include('app.clothingSize.form')
 
                             </form>

@@ -11,14 +11,15 @@
                     <div class="card-header bg-primary">LISTADO</div>
                         <div class="card-body">
                             <form action="{{ route('clothingSize.create') }}" method="GET">
-                                <div class="gap-2 d-md-block">
+                                {{-- <div class="gap-2 d-md-block">
                                     <button class="btn btn-primary" type="submit">CREAR TALLAS</button>
-                                  </div>
+                                  </div> --}}
                             </form>
                             <table class="table table-striped table-hover">
                                 <thead class="thead-light">
                                     <tr>
                                         <th>#</th>
+                                        <th>Cedula</th>
                                         <th>Nombre</th>
                                         <th>T Camisa</th>
                                         <th># Pantalon</th>
@@ -31,16 +32,14 @@
                                     @foreach ($datas as $data)
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $data->na_personal_information }}</td>
-                                            <td>{{ $data->tx_Shirt_Size }}</td>
-                                            <td>{{ $nu_Pant_Size = ($data->nu_Pant_Size == 0) ? '' : $data->nu_Pant_Size  }}</td>
-                                            <td>{{ $Footwear_Size = ($data->nu_Footwear_Size == 0) ? '' : $data->nu_Footwear_Size  }}</td>
+                                            <td>{{ $data['id_personal_information'] }}</td>
+                                            <td>{{ $data['na_personal_information'] }}</td>
+                                            <td>{{ $data['tx_Shirt_Size'] }}</td>
+                                            <td>{{ $nu_Pant_Size = ($data['nu_Pant_Size'] == 0) ? '' : $data['nu_Pant_Size']  }}</td>
+                                            <td>{{ $Footwear_Size = ($data['nu_Footwear_Size'] == 0) ? '' : $data['nu_Footwear_Size']  }}</td>
+                                            @php $cedula = $data['id_personal_information']; @endphp
                                             <td>
-                                                <form action="{{ url('/clothingSize/'.$data->id_personal_information) }}" method="post">
-                                                    @csrf
-                                                    {{ method_field('PUT') }}
-                                                    <button type="sutmit" class="btn btn-outline-info" onclick="return confirm('¿Quieres Borrar?')">Editar</button>
-                                                </form>
+                                                <a href="{{ url( '/clothingSize/'.$cedula.'/edit' ) }}">Editar</a>
                                             </td>
                                         </tr>
                                         @php $i++; @endphp
